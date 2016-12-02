@@ -13,7 +13,7 @@ function register_theme_menus() {
 add_action('init', 'register_theme_menus');
 
 function wp_theme_styles() {
-	wp_enqueue_style( 'style_css', get_template_directory_uri() . '/stylesheets/style.css' );	
+	wp_enqueue_style( 'style_css', get_template_directory_uri() . '/stylesheets/app.css' );	
     wp_enqueue_style( 'fonts', 'https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff|Open+Sans:400,700,800)' );
 }
 

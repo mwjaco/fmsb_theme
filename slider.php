@@ -8,6 +8,7 @@
                 <?php global $post;
                   $post_slug=$post->post_name;
                   $destination = get_field( 'destination' );
+                  $photo_url = get_field( 'photo' );
                 ?>
                   <li class="tab-header-and-content">
                     <a class="tab-link" data-bg="<?php echo $post_slug?>"><?php the_title();?></a>
@@ -23,7 +24,15 @@
                           </div>  
                         </div>
                         <?php if ($destination) {
-                          echo '<div class="btn-wrapper"><a class="btn btn-about" href="'. $destination . '">Learn More</a></div>';
+                          echo '<div class="block block-aside btn-wrapper"><a class="btn btn-about" href="'. $destination . '">Learn More</a></div>';
+                          } else {}
+                        ?>
+                        <?php if ($photo_url) {
+                            echo '<div class="block block-aside">
+                              <div class="img-wrapper">
+                                <img src="'. $photo_url .'" />
+                              </div>
+                            </div>';
                           } else {}
                         ?>                        
                       </div>
