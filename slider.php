@@ -33,8 +33,7 @@
                                 <img src="'. $photo_url .'" />
                               </div>
                             </div>';
-                          } else {}
-                        ?>                        
+                          } else {} ?>              
                       </div>
                     </div>
                   </li>
