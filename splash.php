@@ -32,13 +32,22 @@
               </div>            
             ';
           }
-          else if ( is_single() ) {
+          else if ( is_single() && !is_singular( 'staff' )) {
             echo '
               <div id="patient-portal" class="splash-box">
                 <h1>News</h1>
                 <p>Keep up with the latest from Family Medicine of South Bend</p>
               </div>            
-            ';              
+            ';
+          }
+          else if (is_singular( 'staff' )) {
+            $title = get_the_title();
+            echo '
+              <div class="splash-box">
+                <h1>Our Team</h1>
+                <p>Our staff is one of the most experienced in the South Bend/Granger/Mishawaka area. We\'ve cared for Michiana for over 30 years, and are ready to serve you next.</p>
+              </div>              
+            ';   
           } else {
             $title = get_the_title();
             $blurb = get_field( 'intro_blurb' );            
