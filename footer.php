@@ -6,8 +6,10 @@
       <footer class="footer" role="contentinfo">
         <div class="container">
           <ul>
-            <li class="icon icon-map">6301 University Commons #210, South Bend, IN 46635</li>
-            <li class="icon icon-phone">(574) 234-4016</li>
+            <li class="icon icon-map">
+              <?php the_field('street_address', 184); ?> <?php the_field('suite', 184); ?> <span><?php the_field('city', 184); ?>, <?php the_field('state', 184); ?> <?php the_field('zip', 184); ?> <!-- Retrieve values from Contact Information page // ID 184 -->
+            </li>
+            <li class="icon icon-phone"><?php the_field('phone_number', 184); ?></li>
           </ul>
           <div class="footer-secondary-links">
             <ul>

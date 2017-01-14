@@ -10,6 +10,11 @@
         ?>         
       <div class="splash-content">
         <?php
+          // Set links for patient portal
+          $new_patient = 'https://individualcareforyou.followmyhealth.com/Login/Home/Index?authproviders=0&returnArea=PatientAccess#/createNew';
+          $returning_patient = 'https://individualcareforyou.followmyhealth.com/Login/Home/Index?authproviders=0&returnArea=PatientAccess#/default';
+          $forgotten_password = $returning_patient;
+          $get_help = '/patient-portal-help';
           if ( is_home() ) {
             echo '
               <div id="patient-portal" class="splash-box">
@@ -20,14 +25,14 @@
                 </ul>
                 <div class="new-patients">
                   <div class="btn-wrapper">
-                    <button type="button" class="btn btn-portal">Create an account</button>
+                    <a href="' . $new_patient . '" class="btn btn-portal">Create an account</a>
                   </div>
                 </div>
                 <div class="returning-patients">
                   <div class="btn-wrapper">
-                    <button type="button" class="btn btn-portal">Log in</button>
+                    <a href="' . $returning_patient . '" class="btn btn-portal">Log in</a>
                   </div>
-                  <span><a href="#">Forgot my password</a> | <a href="#">Get help</a></span>
+                  <span><a href="' . $forgotten_password . '">Forgot my password</a> | <a href="' . site_url() . $get_help . '">Get help</a></span>
                 </div>           
               </div>            
             ';

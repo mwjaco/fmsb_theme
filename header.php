@@ -7,6 +7,11 @@
     <?php wp_head(); ?>
   </head>
   <body <?php body_class(); ?>>
+    <!-- Retrieve phone and fax numbers and format them -->
+    <?php
+      $phone = get_field('phone_number', 184);    
+      $phone_formatted = preg_replace('/[^A-Za-z0-9]/', '', $phone);
+    ?>
     <header class="navbar" role="banner">
         <div class="navbar-wrapper">
           <div class="navbar-heading">
@@ -16,13 +21,13 @@
                 <h2 class="alt">www.individualcareforyou.com</h2>
               </div>            
             </a>
-            <span class="address">6301 University Commons Ste. 210 <span>South Bend, IN 46635</span></span>
+            <span class="address"><?php the_field('street_address', 184); ?> <?php the_field('suite', 184); ?> <span><?php the_field('city', 184); ?>, <?php the_field('state', 184); ?> <?php the_field('zip', 184); ?></span></span> <!-- Retrieve values from Contact Information page // ID 184 -->
           </div>
         <a href="#" class="navbar-menu-button" id="js-mobile-menu">MENU</a>
         <ul class="nav navbar-nav contact-list">
-          <li role="listitem" class="icon icon-phone"><a href='tel:1-574-850-3678'>(574) 234-4016</a></li>
-          <li role="listitem" class="icon icon-fax"><a>Fax: (574) 239-4607</a></li>
-          <li role="listitem" class="icon icon-fb"><a href='https://www.facebook.com/Family-Medicine-of-South-Bend-PC-372850392819894/'>Facebook</a></li>
+          <li role="listitem" class="icon icon-phone"><a href='tel:+1<?php echo $phone_formatted ?>'><?php echo $phone ?></a></li>
+          <li role="listitem" class="icon icon-fax"><a>Fax: <?php the_field('fax_number', 184)?></a></li>
+          <li role="listitem" class="icon icon-fb"><a href='<?php the_field('facebook_url', 184) ?>'>Facebook</a></li>
         </ul>
         <nav id="js-navbar-menu" class="show collapse navbar-collapse" role="navigation">
           <?php
@@ -58,11 +63,13 @@
                 <table>
                   <tr>
                     <td>
+                      <p><strong>Address:</strong></p>
                       <p>6301 University Commons</p>
                       <p>Suite 210</p>
                       <p>South Bend, Indiana 46635</p>
                     </td>
                     <td>
+                      <p><strong>Hours of operation:</strong></p>
                       <p>Mon.-Fri. 8 AM - 5 PM</p>
                       <p>Sat. 9 AM - 12 PM</p>
                     </td>
