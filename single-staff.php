@@ -34,6 +34,20 @@
           </div>
           <div class="block-content">
             <?php the_content(); ?>
+            <?php
+              $is_doctor = get_field('is_doctor');
+              if ($is_doctor) {
+                $in_practice_since = get_field('in_practice_since');
+                $accepting_new_patients = get_field('accepting_new_patients');
+                echo '<ul>
+                  <li><strong>In practice since</strong>: ' . $in_practice_since . '</li>
+                  <li><strong>Accepting new patients?</strong> ' . $accepting_new_patients . '</li>
+                </ul>';
+              } else {
+                $joined_practice = get_field('joined_practice');
+                echo '<p>Joined practice: ' . $joined_practice . '</p>';
+              }
+            ?>
           </div>
         </div>
       </div>

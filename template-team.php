@@ -19,7 +19,7 @@
       echo '<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a>';
     echo '</div>';
   ?>
-  <div class="primary">
+  <div class="primary team">
     <?php $args = array ('post_type' => 'staff', 'order' => 'ASC'); $staffquery = new WP_Query( $args );?>
     <ul class="staff-items">
       <?php if ($staffquery->have_posts()) : while($staffquery->have_posts()) : $staffquery->the_post(); ?>
